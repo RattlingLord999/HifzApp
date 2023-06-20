@@ -51,7 +51,7 @@ public class DbHelper extends SQLiteOpenHelper {
                 + COLUMN_MANZIL + " TEXT,"
                 + COLUMN_SABAQI + " TEXT"
                 + ")";
-        System.out.println("Executing oncreate");
+        System.out.println("Executing create");
 
         db.execSQL(sql);
         int i=getRowCount(db);
@@ -121,14 +121,14 @@ public class DbHelper extends SQLiteOpenHelper {
 
 
 
-    private void insertDefaultRecords(SQLiteDatabase db) {
-        // Insert your default student records here
-        String[] names = {"John", "Alice", "Bob"};
-        for (String name : names) {
-            ContentValues values = new ContentValues();
-            values.put("name", name);
-            db.insert(TABLE_NAME, null, values);
-        }
+//    private void insertDefaultRecords(SQLiteDatabase db) {
+//        // Insert your default student records here
+//        String[] names = {"John", "Alice", "Bob"};
+//        for (String name : names) {
+//            ContentValues values = new ContentValues();
+//            values.put("name", name);
+//            db.insert(TABLE_NAME, null, values);
+//        }
         // int i=getRowCount();
         //  System.out.println("size\t"+i);
 
