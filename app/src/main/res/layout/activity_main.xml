@@ -4,8 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   android:background="@drawable/q"
-
     tools:context=".MainActivity">
 
 
@@ -16,11 +14,8 @@
 
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="#EDE8E8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -30,33 +25,27 @@
         android:layout_marginBottom="48dp"
         android:text="Add new"
         app:layout_constraintBottom_toTopOf="@+id/recylerViewStudent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.022"
-        app:layout_constraintStart_toStartOf="parent" />
+        tools:layout_editor_absoluteX="32dp" />
 
     <EditText
         android:id="@+id/edit"
         android:layout_width="194dp"
         android:layout_height="48dp"
-        android:backgroundTint="#FFFFFF"
+        android:layout_marginStart="32dp"
         android:ems="10"
         android:hint="Search by id"
         android:inputType="number"
-        android:textColorHint="#DFD9D9"
-        android:textColorLink="#EADFDF"
-        app:layout_constraintBottom_toTopOf="@+id/addStudent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.736"
-        android:autofillHints="" />
+        tools:layout_editor_absoluteY="72dp" />
 
     <Button
         android:id="@+id/search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="search"
-        tools:layout_editor_absoluteX="216dp"
-        tools:layout_editor_absoluteY="56dp" />
+        android:layout_marginEnd="60dp"
+        android:text="Search"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="72dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
