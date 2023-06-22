@@ -4,31 +4,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class individual extends AppCompatActivity {
-
-    TextView name;
-    TextView id;
-    TextView age;
-    TextView class1;
-    TextView sabaqTo;
-    TextView sabaqFrom;
-    TextView sabaqiText;
-    TextView manzilText;
+public class Record extends AppCompatActivity {
 
 
 
-    CheckBox checkBox ;
+
+
     Button done;
     Button back;
     Data data;
@@ -42,7 +33,7 @@ public class individual extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_individual);
+        setContentView(R.layout.activity_record);
 //        name=findViewById(R.id.name1);
 //        id=findViewById(R.id.id1);
 //        age=findViewById(R.id.age1);
@@ -85,7 +76,7 @@ public class individual extends AppCompatActivity {
 
         recyclerView.setHasFixedSize(true);
 
-        layoutManager = new LinearLayoutManager(individual.this);
+        layoutManager = new LinearLayoutManager(Record.this);
 //        layoutManager = new LinearLayoutManager(MainActivity.this,
 //                LinearLayoutManager.HORIZONTAL,
 //                false);
@@ -95,48 +86,6 @@ public class individual extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
 
-//         String para=data.getParaName(val1.get(0));
-//         String sura=data.urduSurahNames[val1.get(1)];
-//         String verse=String.valueOf(val1.get(2));
-//
-//
-//        String sab = data.getParaName(sabaqi);
-//        String  man=data.getParaName(manzil);
-//
-//
-//
-//        System.out.println("sabaq is from para no \t"+para+"\tsurah\t"+sura+"\tverse\t"+verse);
-//        sabaqFrom.setText("from para "+para+" surah "+sura+" verse "+verse);
-//
-//        int sabaq1=myObject.getSabaq();
-//        int sabaqi1=myObject.getSabaqi();
-//        int manzil1=myObject.getManzil();
-//
-//        ArrayList<Integer> val2=findParaAndSurah(sabaq+30);
-//       // int par=val1.get(0);
-//        String para2=data.getParaName(val2.get(0));
-//        String sura2=data.urduSurahNames[val2.get(1)];
-//        String verse2=String.valueOf(val2.get(2));
-//        System.out.println("to para no \t"+para2+"\tsurah\t"+sura2+"\tverse\t"+verse2);
-//        sabaqTo.setText("to para "+para2+" surah "+sura2+" verse "+verse2);
-//        System.out.println("sabaqi is para no \t"+sab+"\tmanzil\t"+man);
-//        sabaqiText.setText(sab+" sabqi");
-//        manzilText.setText(man+" man");
-////        sabaqi1=par-1;
-//        myObject.setSabaq(sabaq1+30);
-//        myObject.setSabaqi(sabaqi1);
-//        if(manzil1+1<sabaqi)
-//        {
-//            manzil1++;
-//        }
-//        else
-//        {
-//            manzil1=0;
-//        }
-//        myObject.setManzil(manzil1);
-
-
-        // checkBox = findViewById(R.id.cb);
 
         done=findViewById(R.id.button2);
 
@@ -182,14 +131,14 @@ public class individual extends AppCompatActivity {
                 myObject.setManzil(manzil1);
 
 
-                DbHelper db=DbHelper.getInstance(individual.this);
+                DbHelper db=DbHelper.getInstance(Record.this);
 
 
 
                 db.updateStudent(myObject);
                 System.out.println("Saved");
-                Intent intent=new Intent(individual.this,MainActivity.class);
-                Toast.makeText(individual.this, "Record updated successfully", Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(Record.this,MainActivity.class);
+                Toast.makeText(Record.this, "Record updated successfully", Toast.LENGTH_SHORT).show();
                 // intent.putExtra("db", (Serializable) db);
                 startActivity(intent);
             }
@@ -210,7 +159,7 @@ public class individual extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(individual.this,MainActivity.class);
+                Intent intent=new Intent(Record.this,MainActivity.class);
                 // intent.putExtra("db", (Serializable) db);
                 startActivity(intent);
 

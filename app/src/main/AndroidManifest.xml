@@ -13,10 +13,10 @@
         android:theme="@style/Theme.HifzApp"
         tools:targetApi="31">
         <activity
-            android:name=".individual"
+            android:name=".Record"
             android:exported="false" />
         <activity
-            android:name=".Add"
+            android:name=".AddStudent"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

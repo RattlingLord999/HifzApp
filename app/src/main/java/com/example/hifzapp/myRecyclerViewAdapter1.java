@@ -37,7 +37,7 @@ public class myRecyclerViewAdapter1 extends RecyclerView.Adapter<myRecyclerViewA
     public myRecyclerViewAdapter1.MyVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         LayoutInflater inflater=LayoutInflater.from(context);
-        int r=R.layout.template2;
+        int r=R.layout.individualrecord;
         View itemView =inflater.inflate(r,parent, false);
 
 //        View itemView = LayoutInflater.from(parent.getContext())
@@ -62,7 +62,7 @@ public class myRecyclerViewAdapter1 extends RecyclerView.Adapter<myRecyclerViewA
         holder.class1.setText(holder.data.getSclass());
 
         Data data1=new Data();
-        individual ind=new individual();
+        Record ind=new Record();
         ArrayList<Integer> val1=ind.findParaAndSurah(holder.data.getSabaq());
         String para=data1.getParaName(val1.get(0));
         String sura=data1.urduSurahNames[val1.get(1)];

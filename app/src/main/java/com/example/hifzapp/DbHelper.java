@@ -51,7 +51,7 @@ public class DbHelper extends SQLiteOpenHelper {
                 + COLUMN_MANZIL + " TEXT,"
                 + COLUMN_SABAQI + " TEXT"
                 + ")";
-        System.out.println("Executing create");
+        System.out.println("Executing oncreate");
 
         db.execSQL(sql);
         int i=getRowCount(db);
@@ -74,9 +74,9 @@ public class DbHelper extends SQLiteOpenHelper {
         values.put(COLUMN_NAME, student.getName());
         values.put(COLUMN_AGE, student.getAge());
         values.put(COLUMN_CLASS, student.getSclass());
-        values.put(COLUMN_SABAQ, student.getSabaq());
-        values.put(COLUMN_SABAQI, student.getSabaqi());
-        values.put(COLUMN_MANZIL, student.getManzil());
+        values.put(COLUMN_SABAQ,  String.valueOf(student.getSabaq()));
+        values.put(COLUMN_SABAQI, String.valueOf(student.getSabaqi()));
+        values.put(COLUMN_MANZIL, String.valueOf(student.getManzil()));
 
         // values.put(COLUMN_ENROLL, student.isEnroll());
 
@@ -121,31 +121,37 @@ public class DbHelper extends SQLiteOpenHelper {
 
 
 
-//    private void insertDefaultRecords(SQLiteDatabase db) {
-//        // Insert your default student records here
-//        String[] names = {"John", "Alice", "Bob"};
-//        for (String name : names) {
-//            ContentValues values = new ContentValues();
-//            values.put("name", name);
-//            db.insert(TABLE_NAME, null, values);
-//        }
-        // int i=getRowCount();
-        //  System.out.println("size\t"+i);
+    private void insertDefaultRecords(SQLiteDatabase db) {
+        // Insert your default student records here
+        String[] names = {"John", "Alice", "Bob"};
+        for (String name : names) {
+            ContentValues values = new ContentValues();
+            values.put("name", name);
+            db.insert(TABLE_NAME, null, values);
+        }
+
 
     }
 
-    //    public void updateStudent(Student student) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues values = new ContentValues();
-//        values.put(COLUMN_NAME, student.getName());
-//        values.put(COLUMN_ROLLNO, student.getRollNo());
-//        values.put(COLUMN_ENROLL, student.isEnroll());
-//
-//        db.update(TABLE_NAME, values, COLUMN_ROLLNO + " = ?", new String[] {student.getRollNo()});
-//        db.close();
-//    }
-//
-//    public void deleteStudent(String rollNo) {
+    public void updateStudent(Students student) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_NAME, student.getName());
+        values.put(COLUMN_AGE, student.getAge());
+        values.put(COLUMN_CLASS, student.getSclass());
+        values.put(COLUMN_SABAQ,  String.valueOf(student.getSabaq()));
+        values.put(COLUMN_SABAQI, String.valueOf(student.getSabaqi()));
+        values.put(COLUMN_MANZIL, String.valueOf(student.getManzil()));
+
+        db.update(TABLE_NAME, values, COLUMN_ID + " = ?", new String[] {String.valueOf(student.getId())});
+        db.close();
+    }
+
+
+
+
+
+    //    public void deleteStudent(String rollNo) {
 //        SQLiteDatabase db = this.getWritableDatabase();
 //        db.delete(TABLE_NAME, COLUMN_ROLLNO + " = ?", new String[] {rollNo});
 //        db.close();
@@ -176,9 +182,9 @@ public class DbHelper extends SQLiteOpenHelper {
                 @SuppressLint("Range") String name = cursor.getString(cursor.getColumnIndex(COLUMN_NAME));
                 @SuppressLint("Range") String age = cursor.getString(cursor.getColumnIndex(COLUMN_AGE));
                 @SuppressLint("Range") String sclass = cursor.getString(cursor.getColumnIndex(COLUMN_CLASS));
-                @SuppressLint("Range") String sabaq = cursor.getString(cursor.getColumnIndex(COLUMN_SABAQ));
-                @SuppressLint("Range") String sabaqi = cursor.getString(cursor.getColumnIndex(COLUMN_SABAQI));
-                @SuppressLint("Range") String manzil = cursor.getString(cursor.getColumnIndex(COLUMN_MANZIL));
+                @SuppressLint("Range") int sabaq = Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_SABAQ)));
+                @SuppressLint("Range") int sabaqi = Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_SABAQI)));
+                @SuppressLint("Range") int manzil = Integer.parseInt( cursor.getString(cursor.getColumnIndex(COLUMN_MANZIL)));
 //                @SuppressLint("Range")  String rollNo = cursor.getString(cursor.getColumnIndex(COLUMN_ROLLNO));
 //                @SuppressLint("Range") boolean isEnroll = cursor.getInt(cursor.getColumnIndex(COLUMN_ENROLL))>0;
                 Students s=new Students(id,name,age,sclass,sabaq,sabaqi,manzil);

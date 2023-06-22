@@ -3,7 +3,6 @@ package com.example.hifzapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +12,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Add extends AppCompatActivity {
+public class AddStudent extends AppCompatActivity {
     Button save;
     Button back;
     EditText name;
@@ -24,7 +23,7 @@ public class Add extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add);
+        setContentView(R.layout.activity_addstudent);
         DbHelper db=DbHelper.getInstance(this);
         int j=db.RowCount2();
         System.out.println("yhis is "+j);
@@ -57,7 +56,7 @@ public class Add extends AppCompatActivity {
                 age.setText("");
                 sclass.setText("");
 
-                Toast.makeText(Add.this, "Record added successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddStudent.this, "Record added successfully", Toast.LENGTH_SHORT).show();
 
 
 
@@ -68,7 +67,7 @@ public class Add extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Add.this,MainActivity.class);
+                Intent intent=new Intent(AddStudent.this,MainActivity.class);
                 // intent.putExtra("db", (Serializable) db);
                 startActivity(intent);
             }
