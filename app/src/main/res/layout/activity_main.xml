@@ -4,48 +4,71 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/q">
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recylerViewStudent"
-        android:layout_width="414dp"
-        android:layout_height="475dp"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/addStudent"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_below="@+id/edit"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="27dp"
 
-    <Button
-        android:id="@+id/addStudent"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_marginBottom="48dp"
-        android:text="Add new"
-        app:layout_constraintBottom_toTopOf="@+id/recylerViewStudent"
-        tools:layout_editor_absoluteX="32dp" />
+            android:layout_marginBottom="48dp"
 
-    <EditText
-        android:id="@+id/edit"
-        android:layout_width="194dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="32dp"
-        android:ems="10"
-        android:hint="Search by id"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="72dp" />
+            android:text="Add" />
 
-    <Button
-        android:id="@+id/search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="60dp"
-        android:text="Search"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="72dp" />
+        <EditText
+            android:id="@+id/edit"
+            android:layout_width="194dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="72dp"
+            android:ems="10"
+            android:hint="Enter ID"
+            android:inputType="number"
+
+            android:textColor="#F6F1F1"
+            android:textColorHint="#F8F3F3" />
+
+        <Button
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="72dp"
+            android:layout_marginEnd="68dp"
+            android:layout_toEndOf="@id/edit"
+            android:text="Search" />
+
+        <Button
+            android:id="@+id/git"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+
+            android:layout_below="@+id/edit"
+
+            android:layout_marginTop="27dp"
+            android:layout_toRightOf="@+id/addStudent"
+            android:text="GitHub" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recylerViewStudent"
+            android:layout_width="414dp"
+            android:layout_height="475dp"
+
+            android:layout_below="@+id/addStudent"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:background="#B7F3F0F0" />
+
+    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

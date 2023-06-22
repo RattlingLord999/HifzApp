@@ -34,15 +34,7 @@ public class Record extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record);
-//        name=findViewById(R.id.name1);
-//        id=findViewById(R.id.id1);
-//        age=findViewById(R.id.age1);
-//        class1=findViewById(R.id.class1);
-//        sabaqFrom=findViewById(R.id.sabaq1);
-//        sabaqTo=findViewById(R.id.sabaq2);
-//
-//        sabaqiText=findViewById(R.id.sabaqi1);
-//        manzilText=findViewById(R.id.manzil1);
+
         data=new Data();
 
         List<Students> studentList = new ArrayList<>();
@@ -53,18 +45,7 @@ public class Record extends AppCompatActivity {
 
 
 
-//        name.setText(myObject.getName());
-//
-//
-//        id.setText(String.valueOf(myObject.getId()));
-//        age.setText(myObject.getAge());
-//        class1.setText(myObject.getSclass());
-//
-//        System.out.println("name"+name.getText().toString());
-//        System.out.println("id"+id.getText().toString());
-//        System.out.println("age"+age.getText().toString());
-//
-//        System.out.println("class"+class1.getText().toString());
+
         System.out.println("Done");
 
         int sabaq=myObject.getSabaq();
@@ -77,9 +58,7 @@ public class Record extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
 
         layoutManager = new LinearLayoutManager(Record.this);
-//        layoutManager = new LinearLayoutManager(MainActivity.this,
-//                LinearLayoutManager.HORIZONTAL,
-//                false);
+
         recyclerView.setLayoutManager(layoutManager);
 
         adapter = new myRecyclerViewAdapter1(this,studentList) ;
@@ -94,14 +73,7 @@ public class Record extends AppCompatActivity {
             public void onClick(View view) {
                 System.out.println("inside button Learnt");
 
-//                if (!checkBox.isChecked())
-//                {
-//                    System.out.println("not checked");
-//                }
-//
-//                    if (checkBox.isChecked())
-//                    {
-                //System.out.println("checked");
+
                 Data d=new Data();
 
                 ArrayList<Integer> val1=findParaAndSurah(sabaq);
@@ -139,7 +111,7 @@ public class Record extends AppCompatActivity {
                 System.out.println("Saved");
                 Intent intent=new Intent(Record.this,MainActivity.class);
                 Toast.makeText(Record.this, "Record updated successfully", Toast.LENGTH_SHORT).show();
-                // intent.putExtra("db", (Serializable) db);
+
                 startActivity(intent);
             }
 

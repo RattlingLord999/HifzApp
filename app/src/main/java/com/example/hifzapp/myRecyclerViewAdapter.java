@@ -44,8 +44,6 @@ public class myRecyclerViewAdapter extends RecyclerView.Adapter<myRecyclerViewAd
         int r=R.layout.template;
         View itemView =inflater.inflate(r,parent, false);
 
-//        View itemView = LayoutInflater.from(parent.getContext())
-//                .inflate(R.layout.singe_item, parent, false);
 
         return new MyVH(itemView);
     }

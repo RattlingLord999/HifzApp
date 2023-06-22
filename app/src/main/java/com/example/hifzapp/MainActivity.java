@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     myRecyclerViewAdapter adapter;
     Button button;
+    Button git;
     Button search;
     EditText edit;
 
@@ -36,31 +38,35 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
-        //hello
 
-//        Students s1=new Students(1,"Ali");
-//        Students s2=new Students(1,"Ali2");
-//        Students s3=new Students(1,"Ali3");
-//        Students s4=new Students(1,"Ali4");
-//        Students s5=new Students(1,"Ali5");
-//        Students s6=new Students(1,"Ali5");
 
         button=findViewById(R.id.addStudent);
+        git=findViewById(R.id.git);
 
         DbHelper db = DbHelper.getInstance(this);
-        // SQLiteDatabase db = dbHelper.getWritableDatabase();
-        //   db = new DbHelper(this);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this, AddStudent.class);
-                // intent.putExtra("db", (Serializable) db);
+
                 startActivity(intent);
 
             }
         });
 
+        git.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String githubUrl = "https://github.com/RattlingLord999/HifzApp";
 
+
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(githubUrl));
+                startActivity(intent);
+
+            }
+        });
         edit=findViewById(R.id.edit);
         search=findViewById(R.id.search);
 
@@ -81,19 +87,18 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, Record.class);
                     intent.putExtra("myObject", s);
 
-                    // intent.putExtra("db", (Serializable) db);
+
                     startActivity(intent);
                 }
             }
         });
 
 
-        //int i=db.getRowCount();
+
 
 
         SQLiteDatabase db1 = db.getWritableDatabase();
-//        Students s1=new Students("Ali2");
-//        db.insertStudent(s1);
+
 
 
         studentList=db.selectAllStudents();
@@ -101,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         {
             System.out.println("nothing got");
         }
-//        studentList.addAll(Arrays.asList(new Students[]{s1,s2,s3,s4,s5,s6}));
+
         recyclerView = findViewById(R.id.recylerViewStudent);
 
 
@@ -109,11 +114,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        //LinearLayoutManager GridLayoutManager
+
         layoutManager = new LinearLayoutManager(MainActivity.this);
-//        layoutManager = new LinearLayoutManager(MainActivity.this,
-//                LinearLayoutManager.HORIZONTAL,
-//                false);
+
         recyclerView.setLayoutManager(layoutManager);
 
         adapter = new myRecyclerViewAdapter(this,studentList) ;
@@ -122,13 +125,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(int position) {
                 Students student = studentList.get(position);
-                // Handle item click event here
-                // You can access the clicked position or item data
-                Toast.makeText(MainActivity.this, "Clicked on " + student.getName(), Toast.LENGTH_SHORT).show();
+
+              //  Toast.makeText(MainActivity.this, "Clicked on " + student.getName(), Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(MainActivity.this, Record.class);
                 intent.putExtra("myObject", student);
 
-                // intent.putExtra("db", (Serializable) db);
+
                 startActivity(intent);
             }
         });

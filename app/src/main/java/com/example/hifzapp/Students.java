@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Students implements Serializable {
     private int id;
-   // private int imageID;
+
     private String name;
     private String age;
     private String sclass;
@@ -36,13 +36,7 @@ public class Students implements Serializable {
 
 
 
-//    public Students(int id, String name) {
-//        this.id = id;
-//        this.name = name;
-//        this.sabaq = "sabaq";
-//        this.sabaqi = "sabaqi";
-//        this.manzil = "manzil";
-//    }
+
 
     public String getAge() {
         return age;

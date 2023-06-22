@@ -219,7 +219,7 @@
                 android:layout_marginStart="22dp"
                 android:layout_marginBottom="35dp"
                 android:text="Lesson"
-                android:textColor="@android:color/holo_red_dark"
+                android:textColor="@android:color/holo_green_dark"
                 android:textSize="22dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/textViewId6"
@@ -239,31 +239,9 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewId4" />
 
-            <!--            <Button-->
-            <!--                android:id="@+id/button2"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginStart="158dp"-->
-            <!--                android:layout_marginEnd="165dp"-->
-            <!--                android:layout_marginBottom="92dp"-->
-            <!--                android:text="Done"-->
-            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--                app:layout_constraintEnd_toEndOf="parent"-->
-            <!--                app:layout_constraintHorizontal_bias="1.0"-->
-            <!--                app:layout_constraintStart_toStartOf="parent" />-->
 
-            <!--            <CheckBox-->
-            <!--                android:id="@+id/cb3"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
 
-            <!--                android:layout_marginStart="50dp"-->
-            <!--                android:layout_marginEnd="286dp"-->
-            <!--                android:text="Learnt"-->
-            <!--                app:layout_constraintEnd_toEndOf="parent"-->
-            <!--                app:layout_constraintHorizontal_bias="0.0"-->
-            <!--                app:layout_constraintStart_toStartOf="parent"-->
-            <!--                tools:layout_editor_absoluteY="513dp" />-->
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
